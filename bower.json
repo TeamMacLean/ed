@@ -1,0 +1,21 @@
+{
+  "name": "ed",
+  "main": "ed.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/wookoouk/ed",
+  "authors": [
+    "Martin Page <wookoouk@gmail.com>"
+  ],
+  "description": "Edit in Dalliance",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "dalliance": "dasmoth/dalliance"
+  }
+}
