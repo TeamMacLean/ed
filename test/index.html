@@ -8,9 +8,60 @@
 
 
 </head>
-<body>
+<body style="margin:0;padding:8px;">
+<div id='svgHolder'>Failed to load the Biodalliance genome browser. Have you run "gulp"?</div>
 
 
-<script language="javascript" src="../build/dalliance-all.js"></script>
+<script language="javascript" src="../bower_components/dalliance/build/dalliance-all.js"></script>
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<script language="javascript">
+    var b = new Browser({
+        chr: '22',
+        viewStart: 30000000,
+        viewEnd: 30030000,
+        cookieKey: 'human-grc_h37',
+
+        coordSystem: {
+            speciesName: 'Human',
+            taxon: 9606,
+            auth: 'GRCh',
+            version: '37',
+            ucscName: 'hg19'
+        },
+
+
+        sources: [
+            {name: 'Genome',
+                twoBitURI: 'http://www.biodalliance.org/datasets/hg19.2bit',
+                tier_type: 'sequence',
+                provides_entrypoints: true,
+                pinned: true
+            },
+            {name: 'GENCODE',
+                bwgURI: 'http://www.biodalliance.org/datasets/gencode.bb',
+                stylesheet_uri: 'http://www.biodalliance.org/stylesheets/gencode.xml',
+                collapseSuperGroups: true,
+                trixURI: 'http://www.biodalliance.org/datasets/geneIndex.ix',
+                editable: true},
+            {name: 'GENCODE non edit',
+                bwgURI: 'http://www.biodalliance.org/datasets/gencode.bb',
+                stylesheet_uri: 'http://www.biodalliance.org/stylesheets/gencode.xml',
+                collapseSuperGroups: true,
+                trixURI: 'http://www.biodalliance.org/datasets/geneIndex.ix'}
+        ]
+    });
+
+
+</script>
+
+<script src="../ed.js"></script>
+<script>
+    var ed = new Ed();
+    ed.addSaveHandle(function (data) {
+        console.log(data);
+    })
+</script>
+
+
 </body>
 </html>
